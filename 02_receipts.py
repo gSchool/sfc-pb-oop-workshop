@@ -50,3 +50,42 @@ Example:
    print(item.get_total())    # Prints 34.5
 
 """
+class Receipt:
+  def __init__(self, taxRate):
+    self.taxRate = taxRate
+    self.receipt_items = []
+    self.subtotal = 0
+    self.total = 0
+
+  def add_item(self, item): # Add a ReceiptItem to the Receipt
+   self.receipt_items.append(item)
+   #return self.receipt_items
+
+  def get_subtotal(self): # Returns the total of all of the receipt items
+   for item in self.receipt_items: # list of objects
+    self.subtotal = self.subtotal + item.get_total() # get_total from the class ReceiptItem
+   return self.subtotal
+
+  def get_total(self): # Multiplies the subtotal by the 1 + tax rate
+   self.total = self.subtotal*(1 + self.taxRate)
+   return self.total
+
+class ReceiptItem:
+   def __init__(self, price, quantity):
+     self.price = price
+     self.quantity = quantity
+     self.total = 0
+
+   def get_total(self):
+     self.total = self.quantity*self.price
+     return self.total
+
+receipt = Receipt(.1)
+receipt.add_item(ReceiptItem(4, 2.50))
+receipt.add_item(ReceiptItem(2, 5.00))
+
+print(receipt.get_subtotal())     # Prints 20
+print(receipt.get_total())        # Prints 22
+
+item = ReceiptItem(10, 3.45)
+print(item.get_total())    # Prints 34.5
