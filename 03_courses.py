@@ -50,3 +50,41 @@ Example:
    print(student.get_grade())    # Prints 85
 
 """
+
+class Course:
+  def __init__(self, course_name):
+    self.course_name = course_name
+    self.student = []
+    self.student_grades = []
+    self.get_grade = []
+    self.grade_averages = 0
+
+  def add_student(self, student): # Add a Student to the Course
+   self.get_grade.append(student.grade) # save comment as below
+   self.student.append(student.name) # student is instance of Student. Can access Student attributes with dot notation
+   return self.student
+
+  def get_average_grade(self): # Returns the average grade of all students in the course
+   self.grade_averages = sum(self.get_grade)/len(self.get_grade)
+   return self.grade_averages
+
+  def get_total_students(self): # Returns the total number of students enrolled in the course
+   return len(self.student)
+
+class Student:
+  def __init__(self, name, grade):
+   self.name = name
+   self.grade = grade
+
+  def get_grade(self): # Returns the grade of the student
+   return self.grade
+
+course = Course("Math 101")
+course.add_student(Student("Alice", 85))
+course.add_student(Student("Bob", 92))
+print(course.get_average_grade())  # Prints 88.5
+print(course.get_total_students())  # Prints 2
+
+
+student = Student("Alice", 85)
+print(student.get_grade())    # Prints 85
