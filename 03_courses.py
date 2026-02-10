@@ -50,3 +50,31 @@ Example:
    print(student.get_grade())    # Prints 85
 
 """
+
+class Course:
+  def __init__(self, course_name):
+    self.course_name = course_name
+    self.student = []
+    self.student_grades = []
+    self.grade_averages = 0
+
+  def add_student(self, student): # Add a Student to the Course
+   self.student.append(student)
+   return self.student
+
+  def get_average_grade(self): # Returns the average grade of all students in the course
+   # go through and save all of the grades for each student
+   # the grades are in the Student class
+   pass
+
+  def get_total_students(): # Returns the total number of students enrolled in the course
+   pass
+
+class Student:
+  def __init__(self, name, grade):
+   self.name = name
+   self.grade = grade
+
+  def get_grade(): # Returns the grade of the student
+
+   pass
